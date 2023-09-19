@@ -226,6 +226,8 @@ litters_df =
 
 Column types
 
+## hid below code because it is not working
+
 ``` r
 litters_df =
   read_csv(
@@ -250,4 +252,11 @@ Import a SAS file.
 ``` r
 pulse_df =
   read_sas("data/public_pulse_data.sas7bdat")
+```
+
+## Base R… never use read.csv (only use read_csv)
+
+``` r
+litters_df =
+  read.csv("data/FAS_litters.csv")
 ```
