@@ -7,6 +7,10 @@ output: github_document
 
 ```{r}
 library(tidyverse)
+
+library(readxl)
+
+library(haven)
 ```
 
 Let's import the 'FAS__litters.csv' csv using a relative path.
@@ -72,9 +76,11 @@ litters_df =
     na = c("NA", 19))
 ```
 
-Column types
+Column types 
 
-```{r}
+## hid below code because it is not working
+
+```{r eval = FALSE}
 litters_df =
   read_csv(
     "data/FAS_litters.csv",
@@ -82,5 +88,21 @@ litters_df =
       col(
         'GD0 Weight' = col_character()
       )
+```
+
+## Other file types
+
+Import a xlsx file first. 
+
+```{r}
+mlb_df =
+  read_excel("data/mlb11.xlsx")
+```
+
+Import a SAS file.
+
+```{r}
+pulse_df =
+  read_sas("data/public_pulse_data.sas7bdat")
 ```
 
