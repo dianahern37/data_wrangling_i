@@ -1,6 +1,0 @@
----
-title: "data manipulation"
-author: "Diana Hernandez"
-date: "2023-09-21"
-output: github_document
----

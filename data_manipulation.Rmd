@@ -1,0 +1,63 @@
+---
+title: "Data Manipulation"
+author: "Diana Hernandez"
+date: "2023-09-21"
+output: github_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+litters_df = 
+  read_csv("data/FAS_litters.csv")
+
+litters_df = janitor::clean_names(litters_df)
+
+pups_df = 
+  read_csv("data/FAS_pups.csv")
+
+pups_df = janitor::clean_names(pups_df)
+```
+
+## 'select'
+
+'select' is used to select columns
+
+```{r}
+select(litters_df, group, litter_number, gd0_weight)
+
+select(litters_df, group, gd0_weight:gd_of_birth)
+
+select(litters_df, -litter_number)
+
+select(litters_df, group, litter_id = litter_number)
+
+select(litters_df, group, litter_id = litter_number, everything())
+
+select(litters_df, group, starts_with("pups"))
+```
+
+'select' vs 'pull': 'pull' takes something from data frame, 'select' can be used to rename a variable
+
+```{r}
+select(litters_df, group)
+
+pull(litters_df, group)
+```
+
+'rename'
+
+```{r}
+rename(litters_df, litter_id = litter_number)
+
+relocate(litters_df, litter_number)
+```
+
+Learning Assessment
+
+```{r}
+select(pups_df, litter_number, sex, pd_ears)
+```
+
